@@ -1,0 +1,59 @@
+<div class="jumbotron jumbotron-fluid">
+  <h1 class="h1">Inventory Management</h1>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    
+    <form class="form-inline" action="/action_page.php">
+      <button class="btn btn-success"  routerLink="/list"  type="submit">Go to list Inventory Items Page</button>
+    </form>
+  </nav> <br><br>
+<div class="container mb-3">
+
+    <form [formGroup]="logInform">
+    <div class="form-group">
+      <label for="fname" class="pdt">Product Name:</label> &nbsp;<span style="color: red;">*Mandatory Field</span>
+      <input type="text" class="form-control" formControlName="pdtname">
+      <p *ngIf="pdtnamecntrl.touched&&pdtnamecntrl.invalid" style="color: red;">Required</p>
+    </div>
+
+    <div class="form-group">
+      <label for="lname" class="pdt">Product Code:</label> <span style="color: red;">*Only 2 to 3 Numeric Value Accepted</span>
+      <input type="number" class="form-control" formControlName="pdtcode">
+      <p *ngIf="pdtcodecntrl.touched&&pdtcodecntrl.errors?.['required']" style="color: red;">Required</p>
+       <P *ngIf="pdtcodecntrl.touched&&pdtcodecntrl.errors?.['pattern']" style="color: red;">Minimum 3 Digits Only</P> 
+    </div>
+
+    <div class="form-group">
+      <label for="sel1" class="pdt">Product Type:</label> &nbsp;<span style="color: red;">*Mandatory Field</span>
+      <select class="form-control" formControlName="pdttype" id="sel1">
+        
+        <option value="frozen">Frozen Item</option>
+        <option value="vegtables">Vegetables Item</option>
+        <option value="groceries">Groceries Item</option>
+        <option value="eateries">Eateries Item</option>
+      </select>
+      <p *ngIf="pdttypecntrl.touched&&pdttypecntrl.invalid" style="color: red;">Required</p>
+    </div>
+
+    <div class="form-group" class="pdt">
+      <label for="comment">Description:</label> &nbsp;<span style="color: red;">*Mandatory Field</span>
+      <textarea class="form-control" formControlName="pdtdescription" rows="5" id="comment"></textarea>
+    </div>
+    <p *ngIf="pdtdescriptioncntrl.touched&&pdtdescriptioncntrl.errors?.['required']" style="color: red;">Required</p>
+    <p *ngIf="pdtdescriptioncntrl.touched&&pdtdescriptioncntrl.errors?.['minlength']" style="color: red;">Minimum 5 Characters</p>
+
+      <div class="form-group" class="pdt">
+        <label for="place">Price:</label> &nbsp;<span style="color: red;">*Only 4 to 5 digit Numeric Value Accepted</span>
+        <input type="number" class="form-control" formControlName="pdtprice">
+        <p *ngIf="pdtpricecntrl.touched&&pdtpricecntrl.errors?.['required']" style="color: red;">Required</p>
+       <P *ngIf="pdtpricecntrl.touched&&pdtpricecntrl.errors?.['pattern']" style="color: red;">Minimum Price Value 5 Digits Only</P> 
+      </div> <br><br>
+      <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="logInform.invalid">Submit</button>
+    </form>
+   
+   
+  
+</div>
+<div>
+ 
+</div>
+

@@ -1,0 +1,49 @@
+<div class="jumbotron jumbotron-fluid">
+  <h1 class="h1">Inventory Management</h1>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <form class="form-inline" action="/action_page.php">
+      <button class="btn btn-success"  routerLink="/add"  type="submit">Go to Add Inventory Items Page</button>
+    </form>
+  </nav>
+
+<div class="container mt-3">
+    <form>
+    <div class="form-group">
+      <label for="fname" class="pdt">Product Name:</label>
+      <input type="text" class="form-control" [(ngModel)]="based_id_data.pdtname" name="pdtname" >
+    </div>
+
+    <div class="form-group">
+      <label for="lname" class="pdt">Product Code:</label>
+      <input type="text" [(ngModel)]="based_id_data.pdtcode"  name="pdtcode" class="form-control" >
+    </div>
+
+    <div class="form-group">
+      <label for="sel1" class="pdt">Product Type:</label>
+      <select class="form-control"  [(ngModel)]="based_id_data.pdttype" name="pdttype" id="sel1">
+        <option value=""></option>
+        <option value="frozen">Frozen Item</option>
+        <option value="vegtables">Vegetables Item</option>
+        <option value="groceries">Groceries Item</option>
+        <option value="eateries">Eateries Item</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="comment" class="pdt">Description:</label>
+      <textarea class="form-control"   [(ngModel)]="based_id_data.pdtdescription" name="pdtdescription" rows="5" id="comment"></textarea>
+    </div>
+      <div class="form-group">
+        <label for="place" class="pdt">Price:</label>
+        <input type="text" [(ngModel)]="based_id_data.pdtprice" name="place"  class="form-control" >
+      </div>
+      <button type="button" class="btn btn-primary" (click)="updateDatas()">Update</button>
+    </form>
+</div>
+
+
+   
+   
+   
+  
+</div>
